@@ -10,12 +10,9 @@ import os
 class MapsScraper():
     
     def __init__(self):
-        # Universal storage path
-        self.__storage_path = os.path.join(os.path.dirname(
-            os.path.dirname(os.path.abspath(__file__))), 'data', 'scraped_data').replace('\\scrapers', '')
+
         # Specify the path to chromedriver.exe
-        self.__webdriver_path = os.path.join(os.path.dirname(
-            os.path.dirname(os.path.abspath(__file__))), 'chromedriver.exe')
+        self.__webdriver_path = './chromedriver.exe'
         # Drivers options
         self.chrome_options = webdriver.ChromeOptions()
         self.chrome_options.add_argument("--start-maximized")
@@ -23,7 +20,7 @@ class MapsScraper():
         #Loading Selenium Webdriver 
         wait = WebDriverWait(self.driver, 5)
 
-    def get_address(self, location = 'Egypt', query = "el sallam shopping center", n_results=None):
+    def get_address(self, location = 'Egypt', query = "KFC", n_results=None):
         
         '''
         parameters: location, name of the place, num_results
